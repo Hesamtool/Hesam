@@ -7,6 +7,7 @@ Created on Thu Mar  7 20:44:39 2019
 import math
 import os
 import stl
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits import mplot3d
@@ -40,6 +41,7 @@ def find_mins_maxs(obj):
 
 def plot_stl(obj, name) :
     """Plot of STL and Bounding box"""
+    matplotlib.use("Agg")
     figure = plt.figure(facecolor="white")
     axes = mplot3d.Axes3D(figure)
     axes.add_collection3d(mplot3d.art3d.Poly3DCollection(obj.vectors, facecolors='purple', linewidths = 1)) #Plot the STL part

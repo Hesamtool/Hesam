@@ -1,0 +1,3 @@
+Calcul : 
+Ligne 56 
+plt.savefig("hesamtool.pythonanywhere.com/media/stl/" + str(name) + ".png", transparent = True)
