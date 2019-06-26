@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{% load static %}
+		<meta charset="utf-8"/>
+        <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css'%}"/>
+        <script src="{% static 'js/index.js'%}"></script>
+		<title>LCPI</title>
+	</head>
+
+	<body>
+		<span class="fixed">
+			<header>
+                <img src="{% static 'img/arts.png' %}" alt="Logo of Arts" class="arts"/>        
+                <img src="{% static 'img/team.png' %}" alt="Logo of LCPI" class="lcpi"/>
+                <h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
+                <img src="{% static 'img/i2m.png' %}" alt="Logo of I2M" class="i2m"/>
+                <img src="{% static 'img/lcpi.gif' %}" alt="Logo of Arts" class="arts"/>
+            </header>
+			<nav class="nav_mas">
+				<ul>				
+	  				<li onclick="switch_mas('cri')"><a>Criteria</a></li>
+	  				<li onclick="switch_mas('stl')"><a>STL</a></li>
+	  				<li><a href="{% url "results" %}">Your TEAM strategy</a></li>
+				</ul>
+			</nav>
+		</span>
+        <form action="{% url "master" %}" method="post" enctype="multipart/form-data" name="myform" id="myform" class="form_mas">
+            {% csrf_token %}
+            <div id=experience>
+                <input id="id_master" type="radio" name="experience" value="master" checked>
+                <label id="label_master" for="id_master"></label>
+            </div>
+            <div class="body_cri" id="criteria">
+                <nav class="nav_cri">
+                    <ul>
+                        <li onclick="switch_cri('tec')" id="ong_tec"><a>Technology</a></li>
+                        <li onclick="switch_cri('mat')" id="ong_mat"><a>Material</a></li>
+                        <li onclick="switch_cri('sur')" id="ong_sur"><a>Surface finish</a></li>
+                        <li onclick="switch_cri('fil')" id="ong_fil"><a>Filling</a></li>
+                        <li onclick="switch_cri('col')" id="ong_col"><a>Colour</a></li>
+                        <li onclick="switch_cri('the')" id="ong_the"><a>Thermal resistance</a></li>
+                        <li onclick="switch_cri('opt')" id="ong_opt"><a>Optical resistance</a></li>
+                        <li onclick="switch_cri('spe')" id="ong_spe"><a>Printing speed</a></li>
+                    </ul>
+                </nav>
+                <div class="criteria" id="cri_tech">
+                    <div>
+                        <p>
+                            <span class="label_boa"><strong>What are your technological preferences?</strong></span></br>
+                            <span class="def">Click on the technology to select it, mutli-choice permitted:</span>
+                            <span class="crit_allo">Allowed</span>
+                            <span class="def">, </span>
+                            <span class="crit_forb">Forbidden</span>
+                        </p>
+                    </div>
+                    <div class="value_tech">
+                        <div class="tech">
+                            <img class="img_tech"  id="img_tec1" src="{% static 'img/sla.png' %}" alt="VAT Polymerisation" onclick="change_technology('tec1')"/>
+                            <input id="tec1" type="checkbox" name="technology_yes" value="1">
+                            <input id="tec1_no" type="checkbox" name="technology_no" value="1">
+                            <p class="def">VAT Polymerization</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec2" src="{% static 'img/dod.png' %}" alt="Material Jetting" onclick="change_technology('tec2')"/>
+                            <input id="tec2" type="checkbox" name="technology_yes" value="2">
+                            <input id="tec2_no" type="checkbox" name="technology_no" value="2">
+                            <p class="def">Material jetting</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec3" src="{% static 'img/binder_jetting.png' %}" alt="Binder jetting" onclick="change_technology('tec3')"/>
+                            <input id="tec3" type="checkbox" name="technology_yes" value="3">
+                            <input id="tec3_no" type="checkbox" name="technology_no" value="3">
+                            <p class="def">Binder jetting</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec4" src="{% static 'img/slm.png' %}" alt="oower bed fusion" onclick="change_technology('tec4')"/>
+                            <input id="tec4" type="checkbox" name="technology_yes" value="4">
+                            <input id="tec4_no" type="checkbox" name="technology_no" value="4">
+                            <p class="def">Power bed fusion</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec5" src="{% static 'img/fff.png' %}" alt="Material extrusion" onclick="change_technology('tec5')"/>
+                            <input id="tec5" type="checkbox" name="technology_yes" value="5">
+                            <input id="tec5_no" type="checkbox" name="technology_no" value="5">
+                            <p class="def">Material extrusion</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec6" src="{% static 'img/ded.png' %}" alt="Direct energy depostion" onclick="change_technology('tec6')"/>
+                            <input id="tec6" type="checkbox" name="technology_yes" value="6">
+                            <input id="tec6_no" type="checkbox" name="technology_no" value="6">
+                            <p class="def">Direct energy depostion</p>
+                        </div>
+                        <div class="tech">
+                            <img class="img_tech" id="img_tec7" src="{% static 'img/layer_lamination.png' %}" alt="Layer lamination" onclick="change_technology('tec7')"/>
+                            <input id="tec7" type="checkbox" name="technology_yes" value="7">
+                            <input id="tec7_no" type="checkbox" name="technology_no" value="7">
+                            <p class="def">Layer lamination</p>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div>
+                        </div>
+                        <div class="next" onclick="switch_cri('mat')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_mate">
+                    <div>
+                        <p>
+                            <span class="label_boa"><strong>What are your material preferences?</strong></span></br>
+                            <span class="def">Click on the material to select it, mutli-choice permitted:</span>
+                            <span class="crit_allo">Allowed</span>
+                            <span class="def">, </span>
+                            <span class="crit_forb">Forbidden</span>
+                        </p>
+                    </div>
+                    <div class="value_mate">
+                        <div>
+                            <input id="mate_1" type="checkbox" name="material_yes" value="6">
+                            <input id =mate_1_no type="checkbox" name="material_no" value="6">
+                            <label id="label_mate_1" onclick="change_material('mate_1')">ABS plus</label>
+                        </div>
+                        <div>
+                            <input id="mate_2" type="checkbox" name="material_yes" value="7">
+                            <input id =mate_2_no type="checkbox" name="material_no" value="7">
+                            <label id="label_mate_2" onclick="change_material('mate_2')">Polyflex</label>
+                        </div>
+                        <div>
+                            <input id="mate_3" type="checkbox" name="material_yes" value="8">
+                            <input id =mate_3_no type="checkbox" name="material_no" value="8">
+                            <label id="label_mate_3" onclick="change_material('mate_3')">PLA</label>
+                        </div>
+                        <div>
+                            <input id="mate_4" type="checkbox" name="material_yes" value="9">
+                            <input id =mate_4_no type="checkbox" name="material_no" value="9">
+                            <label id="label_mate_4" onclick="change_material('mate_4')">ABS</label>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('tec')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('sur')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_surf">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Which surface finish do you prefer?</strong></span></br>
+                            <span class="def"> Click on the surface finish to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_surf">
+                        <div>
+                            <img   id="img_fair" src="{% static 'img/rough.png' %}" alt="Fair states of surface" onclick="change_surface('fair')"/>
+                            <input id="fair" type="radio" name="surface" value="Rough">
+                            <p class="def">Rough</p>
+                        </div>
+                        <div>
+                            <img   id="img_aver" src="{% static 'img/medium.png' %}" alt="Average states of surface" onclick="change_surface('aver')"/>
+                            <input id="aver" type="radio" name="surface" value="Medium">
+                            <p class="def">Medium</p>
+                        </div>
+                        <div>
+                            <img   id="img_good" src="{% static 'img/smooth.png' %}" alt="Good states of surface" onclick="change_surface('good')"/>
+                            <input id="good" type="radio" name="surface" value="Smooth">
+                            <p class="def">Smooth</p>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('mat')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('fil')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_fill">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Which filling do you prefer?</strong></span></br>
+                            <span class="def"> Click on the filling to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_fill">
+                        <div>
+                            <img   id="img_emp" src="{% static 'img/empty_fil.png' %}" alt="Empty" onclick="change_colour_filling('emp')"/>
+                            <input id="emp" type="radio" name="filling_proto" value="emp">
+                            <p class="def">Empty</p>
+                        </div>
+                        <div>
+                            <img   id="img_med" src="{% static 'img/medium_fil.png' %}" alt="Medium" onclick="change_colour_filling('med')"/>
+                            <input id="med" type="radio" name="filling_proto" value="med">
+                            <p class="def">Medium</p>
+                        </div>
+                        <div>
+                            <img   id="img_ful" src="{% static 'img/full_fil.png' %}" alt="Full" onclick="change_colour_filling('ful')"/>
+                            <input id="ful" type="radio" name="filling_proto" value="ful">
+                            <p class="def">Full</p>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('sur')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('col')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_colo">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Do you have any preferences for the color of your prototype?</strong></span></br>
+                            <span class="def"> Click on the colour choice to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_colo">
+                        <div>
+                            <input id="tran" type="radio" name="colour" value="Transparent">
+                            <label id="label_tran" for="tran" onclick="change_colour_colo('tran')">Transparent</label>
+                        </div>
+                        <div>
+                            <input id="mono" type="radio" name="colour" value="Monochrome">
+                            <label id="label_mono" for="mono" onclick="change_colour_colo('mono')">Monochrome</label>
+                        </div>
+                        <div>
+                            <input id="mult" type="radio" name="colour" value="Multi-colored">
+                            <label id="label_mult" for="mult" onclick="change_colour_colo('mult')">Multi-colored</label>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('fil')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('the')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_ther">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Do you want your prototype to have thermal resistance?</strong></span></br>
+                            <span class="def"> Click on your preference choice to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_ther">
+                        <div>
+                            <input id="yes_ther" type="radio" name="thermal_resistance" value="Yes">
+                            <label id="label_yes_ther" for="yes_ther" onclick="change_colour_ther('yes')">Yes</label>
+                        </div>
+                        <div>
+                            <label id="label_no_ther" onclick="change_colour_ther('no')">No</label>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('col')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('opt')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_opti">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Do you want your prototype to have optical resistance?</strong></span></br>
+                            <span class="def"> Click on your preference choice to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_opti">
+                        <div>
+                            <input id="yes_opti" type="radio" name="optical_resistance" value="Yes">
+                            <label id="label_yes_opti" for="yes_opti" onclick="change_colour_opti('yes')">Yes</label>
+                        </div>
+                        <div>
+                            <label id="label_no_opti" onclick="change_colour_opti('no')">No</label>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('the')">
+                            Previous
+                        </div>
+                        <div class="next" onclick="switch_cri('spe')">
+                            Next
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="criteria" id="cri_spee">
+                    <div>
+                        <p>
+                            <span class= "label_boa"><strong>Are you in rush?</strong></span></br>
+                            <span class="def"> Click on your preference choice to select it.</span>
+                        </p>
+                    </div>
+                    <div class="value_spee">
+                        <div>
+                            <input id="yes_spee" type="radio" name="printing_speed" value="Normal">
+                            <label id="label_yes_spee" for="yes_spee" onclick="change_colour_spee('yes')">Normal</label>
+                        </div>
+                        <div>
+                            <label id="label_no_spee" onclick="change_colour_spee('no')">Fast</label>
+                        </div>
+                    </div>
+                    <div class= "change_sheet">
+                        <div>
+                        </div>
+                        <div class="previous" onclick="switch_cri('opt')">
+                            Previous
+                        </div>
+                        <div>
+                        </div>
+                        <div class="save" onclick="switch_mas('stl')">
+                            Save
+                        </div>
+                    </div>
+                </div>                                 
+            </div>
+            <div class="body" id="stl">
+                <div class="label_boa">
+                    <p><strong>Upload your STL file</strong></p>
+                </div>
+                <div class="stl">
+                    <input id="id_file" type="file" name="file">
+                    <label id="label_file" for="id_file">Import a STL file</label> 
+                </div>
+                <div class="change_sheet">
+                    <div class="back" onclick="switch_mas('cri')">
+                        Step backwards
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <input id="submit" type="submit" value="Submit"/>
+                        <label id="label_submit" for="submit" class="strategy">Save</label>
+                    </div>
+                </div>
+            </div>	
+        </form>
+	</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{% load static %}
+		<meta charset="utf-8"/>
+        <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css'%}"/>
+        <script src="{% static 'js/index.js'%}"></script>
+		<title>LCPI</title>
+	</head>
+
+	<body>
+		<span class="fixed">
+			<header>
+				<img src="{% static 'img/arts.png' %}" alt="Logo of Arts" class="arts"/>		
+				<img src="{% static 'img/team.png' %}" alt="Logo of LCPI" class="lcpi"/>
+				<h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
+				<img src="{% static 'img/i2m.png' %}" alt="Logo of I2M" class="i2m"/>
+				<img src="{% static 'img/lcpi.gif' %}" alt="Logo of Arts" class="arts"/>
+			</header>
+			<nav class="nav_res">
+				<ul>
+					<li id="ong_res" onclick="switch_res('res')"><a href="#strategy_user">Strategy</a></li>
+	  				<li id="ong_rul" onclick="switch_res('rul')"><a href="#rules">HESAM rules</a></li>
+	  				<li id="ong_set" onclick="switch_res('set')"><a href="#area_set">Machine settings</a></li>
+	  				{% if prototype.experience == "beginner" %}
+	  					<li id="link_debu"><a href="{% url 'beginner' %}">Back to the beginner configuration</a></li>
+	  				{% elif prototype.experience == "master" %}
+	  					<li id="link_expe"><a href="{% url 'master' %}">Back to the master configuration</a></li>
+	  				{% endif %}
+				</ul>
+			</nav>
+		</span>
+		<div class="results">
+			<div class="strategy_user" id="strategy_user">
+				<div class="label_boa">
+					<p><strong>Choose your printing strategy according to the material support comsuption and the cost</strong></p>
+				</div>
+				<div class="select_str">
+					<div>
+						<img id="img_mate_ina" src="{% static 'img/tree_ina.png' %}" alt="Material" onclick="strategy('mate'), change_colour_strategy('mate')"/>
+						<img id="img_mate_ac" src="{% static 'img/tree_ac.png' %}" alt="Material" onclick="strategy('mate'), change_colour_strategy('mate')"/>
+						<p class="label_boa"><strong>Material</strong></p>
+					</div>
+					<div>
+						<img id="img_cost_ina" src="{% static 'img/cost_ina.png' %}" alt="Cost" onclick="strategy('cost'), change_colour_strategy('cost')"/>
+						<img id="img_cost_ac" src="{% static 'img/cost_ac.png' %}" alt="Cost" onclick="strategy('cost'), change_colour_strategy('cost')"/>
+						<p class="label_boa"><strong>Cost</strong></p>
+					</div>
+					<div class="label_boa">
+						<p><strong>Material support </strong>: {{result.volume_support_mate}}cm<sup>3</sup></br><strong>Cost </strong>: {{result.price_mate}}€ </p>
+					</div>
+					<div class="label_boa">
+						<p><strong>Material support </strong>: {{result.volume_support_cost}}cm<sup>3</sup></br><strong>Cost </strong>: {{result.price_cost}}€ </p>
+					</div>
+				</div>
+				<div class= "change_sheet">
+					<div>
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+					<div class="save" onclick="switch_res('rul')">
+						Save
+					</div>
+				</div>
+			</div>
+			<div class="rules" id="rules">
+				<div class="label_boa">
+					<p><strong>Please be careful to observe the following design rules:</strong></p>
+				</div>
+				<div class="design_rules">
+					<p>TEAM rules</p>
+				</div>
+				<div class= "change_sheet">
+					<div class="back" onclick="switch_res('res')">
+						Step backwards
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+					<div class="save" onclick="switch_res('set')">
+						Save
+					</div>
+				</div>
+			</div>		
+			<div class="set_machine" id="set_machine">
+				<div class="area_set">
+					<div class="label_boa">
+						<p><strong>Specification of your prototype</strong></p>
+					</div>
+					<table class="set">
+						<tbody>
+							<tr>
+								<td>Printer</td>
+								<td>
+									<span class="material_choice"> {{result.printer_mate}}</span>
+									<span class="cost_choice"> {{result.printer_cost}}</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Material</td>
+								<td>
+									<span class="material_choice"> {{result.material_mate}}</span>
+									<span class="cost_choice"> {{result.material_cost}}</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Cost</td>
+								<td>
+									<span class="material_choice"> {{result.price_mate}} €</span>
+									<span class="cost_choice"> {{result.price_cost}} €</span>
+								</td>
+							</tr>							
+						</tbody>
+					</table>
+					<div class="label_boa">
+						<p><strong>Reminder of your previous entries</strong></p>
+					</div>
+					<table class="set" rules = all id="entry">
+						<tbody>
+							<tr>
+								<td>Experience</td>
+								<td>{% if prototype.experience == "beginner" %} 
+									Beginner
+									{% elif prototype.experience == "master" %}
+									Master
+									{% endif %}
+								</td>
+							</tr>
+							{% if prototype.use %}
+							<tr>
+								<td>Use</td>
+								<td>{{prototype.use}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.sector %}
+							<tr>
+								<td>Sector</td>
+								<td>{{prototype.sector}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.colour %}
+							<tr>
+								<td>Colour</td>
+								<td>{{prototype.colour}}</td>
+							</tr>
+							{%endif%}
+
+							{% if prototype.surface %}
+							<tr>
+								<td>Surface</td>
+								<td>{{prototype.surface}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.filling_proto  == 'emp' %}
+							<tr>
+								<td>Prototype filling</td>
+								<td>Empty</td>
+							</tr>
+							{%endif%}
+							{% if prototype.filling_proto  == 'med' %}
+							<tr>
+								<td>Prototype filling</td>
+								<td>Medium</td>
+							</tr>
+							{%endif%}
+							{% if prototype.filling_proto  == 'ful' %}
+							<tr>
+								<td>Prototype filling</td>
+								<td>Full</td>
+							</tr>
+							{%endif%}
+							{% if prototype.thermal_resistance %}
+							<tr>
+								<td>Thermal resistance</td>
+								<td>{{prototype.thermal_resistance}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.optical_resistance %}
+							<tr>
+								<td>Optical resistance</td>
+								<td>{{prototype.optical_resistance}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.printing_speed %}
+							<tr>
+								<td>Printing speed</td>
+								<td>{{prototype.printing_speed}}</td>
+							</tr>
+							{%endif%}
+							{% if prototype.material_yes.all|length > 0 %}
+							<tr>
+								<td>Materials allowed</td>
+								<td>{% for mat in prototype.material_yes.all %}
+									{{mat.title}},
+									{%endfor%}
+								</td>
+							</tr>
+							{%endif%}
+							{% if prototype.material_no.all|length > 0 %}
+							<tr>
+								<td>Materials forbad</td>
+								<td>{% for mat in prototype.material_no.all %}
+									{{mat.title}},
+									{%endfor%}
+								</td>
+							</tr>
+							{%endif%}
+							{% if prototype.technology_yes.all|length > 0 %}
+							<tr>
+								<td>Technologies allowed</td>
+								<td>{% for tec in prototype.technology_yes.all%}
+									{{tec.title}},
+									{%endfor%}
+								</td>
+							</tr>
+							{%endif%}
+							{% if prototype.technology_no.all|length > 0 %}
+							<tr>
+								<td>Technologies forbad</td>
+								<td>{% for tec in prototype.technology_no.all%}
+									{{tec.title}},
+									{%endfor%}
+								</td>
+							</tr>
+							{%endif%}
+						</tbody>
+					</table>
+				</div>
+				<div class= "orientation">
+					<div class="label_boa"><p><strong>Recommended settings for your 3D printer</strong></p></div>
+					<div  class="material_choice">
+						<table class="set">
+							<thead>
+								<tr>
+									<td>Settings</td>
+									<td>Adjustements</td>
+								</tr>
+							</thead>
+							<tbody>
+								{% if result.layer_height_mate %}
+								<tr>
+									<td>Layer thickness</td>
+									<td>{{result.layer_height_mate}} mm</td>
+								</tr>
+								{% endif %}
+								{% if result.volume_prototype_mate_label %}
+								<tr>
+									<td>Prototype infill density</td>
+									<td>{{result.volume_prototype_mate_label}} </td>
+								</tr>
+								{% endif %}
+								{% if result.pattern_proto_mate_label %}
+								<tr>
+									<td>Prototype infill pattern</td>
+									<td>{{result.pattern_proto_mate_label}}</td>
+								</tr>	
+								{% endif %}
+								{% if result.pattern_support_mate %}
+								<tr>
+									<td>Support infill density</td>
+									<td>{{result.pattern_support_mate}}</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_X %}
+								<tr>
+									<td>Rotation X</td>
+									<td>{{result.rotation_X}} °</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_Y %}
+								<tr>
+									<td>Rotation Y</td>
+									<td>{{result.rotation_Y}} °</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_Z %}
+								<tr>
+									<td>Rotation Z</td>
+									<td>{{result.rotation_Z}} °</td>
+								</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+					<div class="cost_choice">
+						<table class="set">
+							<thead>
+								<tr>
+									<td>Settings</td>
+									<td>Adjustements</td>
+								</tr>
+							</thead>
+							<tbody>
+								{% if result.layer_height_cost %}
+								<tr>
+									<td>Layer thickness</td>
+									<td>{{result.layer_height_cost}} mm</td>
+								</tr>
+								{% endif %}
+								{% if result.volume_prototype_cost_label %}
+								<tr>
+									<td>Prototype infill density</td>
+									<td>{{result.volume_prototype_cost_label}} </td>
+								</tr>
+								{% endif %}
+								{% if result.pattern_proto_cost_label %}
+								<tr>
+									<td>Prototype infill pattern</td>
+									<td>{{result.pattern_proto_cost_label}}</td>
+								</tr>	
+								{% endif %}
+								{% if result.pattern_support_cost %}
+								<tr>
+									<td>Support infill density</td>
+									<td>{{result.pattern_support_cost}}</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_X %}
+								<tr>
+									<td>Rotation X</td>
+									<td>{{result.rotation_X}} °</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_Y %}
+								<tr>
+									<td>Rotation Y</td>
+									<td>{{result.rotation_Y}} °</td>
+								</tr>
+								{% endif %}
+								{% if result.rotation_Z %}
+								<tr>
+									<td>Rotation Z</td>
+									<td>{{result.rotation_Z}} °</td>
+								</tr>
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+					<div class="label_boa"><p><strong>Orientation of your prototype</strong></p></div>
+					<img src= "{{ result.image.url }}" alt="orientation of STL file" class="ori_stl"/>
+				</div>
+				<div class= "change_sheet">
+					<div class="back" onclick="switch_res('rul')">
+						Step backwards
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

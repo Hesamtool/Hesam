@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{% load static %}
+		<meta charset="utf-8"/>
+        <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css'%}"/>
+        <script src="{% static 'js/index.js'%}"></script>
+		<title>LCPI</title>
+	</head>
+	<body>
+		<span class="fixed">
+			<header>
+				<img src="{% static 'img/arts.png' %}" alt="Logo of Arts" class="arts"/>		
+				<img src="{% static 'img/team.png' %}" alt="Logo of LCPI" class="lcpi"/>
+				<h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
+				<img src="{% static 'img/i2m.png' %}" alt="Logo of I2M" class="i2m"/>
+				<img src="{% static 'img/lcpi.gif' %}" alt="Logo of Arts" class="arts"/>
+			</header>
+		</span>
+		<div class="welcome">
+			<div class="welc_head">
+				<p class="label_boa">
+					<strong>Welcome on the HESAM web site !</strong></br>
+				</p>
+				<p class="def">
+					HESAM will allow you to optimize the printing of your prototypes while reducing their environmental impact. This tool has been developed to be accessible to all users of additive manufacturing regardless of their level of competence in this field.</br></br>
+					In order to start the application, please select your additive manufacturing skill levels.
+				</p>
+			</div>
+			<div class="principles">
+				<div class="prin">
+					<div>
+						<p class="def">
+							<strong>You are beginner if :</strong>
+							</br>
+							</br>You have never or rarely used additive manufacturing
+							</br>
+							</br>You have little or no competence in materials       
+							</br>
+							</br>
+							</br>
+							</br>
+							</br>
+							</br>
+						</p class="def">
+					</div>
+					<div>
+						<a id="beginner" class="home_choice" href="{% url 'beginner' %}">Beginner</a>
+					</div>
+				</div>
+				<div class="prin">
+					<div>
+						<p class="def">
+							<strong>You are master if :</strong>
+							</br>
+							</br>You commonly use several additive manufacturing technologies
+							</br>
+							</br>You have extensive knowledge of materials
+							</br>
+							</br>
+							</br>
+							</br>
+							</br>
+							</br>
+						</p>
+					</div>
+					<div>
+						<a href="{% url 'master' %}" class="home_choice" id ="master">Master</a>
+					</div>
+				</div>
+				<div class="prin">
+					<div class="def">
+						I can't judge my level of knowledge in additive manufacturing.
+					</div>
+					<div>
+						<a id ="level" href="{% url 'level' %}" class="home_choice">Evaluate my level</a>
+					</div>
+				</div>
+			</div>
+			<div class='deve'>
+				<p>App developed by:</br> Intern : Bastien Rocheton</br> Tutors : Frédéric Segonds, Floriane Laverne and Nicolas Perry</br></p>
+			</div>
+		</div>
+	</body>
+</html>

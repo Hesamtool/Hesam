@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		{% load static %}
+		<meta charset="utf-8"/>
+        <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css'%}"/>
+        <script src="{% static 'js/index.js'%}"></script>
+		<title>LCPI</title>
+	</head>
+	<body>
+		<span class="fixed">
+			<header>
+				<img src="{% static 'img/arts.png' %}" alt="Logo of Arts" class="arts"/>		
+				<img src="{% static 'img/team.png' %}" alt="Logo of LCPI" class="lcpi"/>
+				<h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
+				<img src="{% static 'img/i2m.png' %}" alt="Logo of I2M" class="i2m"/>
+				<img src="{% static 'img/lcpi.gif' %}" alt="Logo of Arts" class="arts"/>
+			</header>
+		</span>
+		<form action="{% url 'level' %}" method="post" enctype="multipart/form-data" name="myform" id="myform">
+            {% csrf_token %}
+            <div class="level_sheet">
+            	<div class="level_instruction">
+            		<p class="label_boa">
+            			You must answer all of the following open-ended questions:
+            		</p>
+            	</div>
+	            <div class="level_form">
+		            <div class="element">
+		            	<div class="question">
+		            		<p class="label_boa">
+		            			I have knowledge of polymer additive manufacturing processes:
+		            		</p>
+		            	</div>
+		            	<div class="answer">
+		            		<div>
+		            		    <div class="def">Unfamiliar</br></div>
+		                        <input id="quest1_answ1" type="radio" name="quest1" value="1">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Little familiar</br></div>
+		                        <input id="quest1_answ2" type="radio" name="quest1" value="2">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Familiar</br></div>
+		                        <input id="quest1_answ4" type="radio" name="quest1" value="4">
+		                    </div>
+		                    <div>
+		                        <div class="def">Very familiar</br></div>	                    	
+		                        <input id="quest1_answ5" type="radio" name="quest1" value="5">
+		                    </div>
+		            	</div>
+		            </div>
+		            <div class="element">
+		            	<div class="question">
+		            		<p class="label_boa">
+		            			I have knowledge of metal additive manufacturing processes:
+		            		</p>
+		            	</div>
+		            	<div class="answer">
+		            		<div>
+		            			<div class="def">Unfamiliar</br></div>
+		                        <input id="quest2_answ1" type="radio" name="quest2" value="1">
+		                    </div>
+		                    <div>
+		                      	<div class="def">Little familiar</br></div>
+		                        <input id="quest2_answ2" type="radio" name="quest2" value="2">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Familiar</br></div>
+		                        <input id="quest2_answ4" type="radio" name="quest2" value="4">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Very familiar</br></div>
+		                        <input id="quest2_answ5" type="radio" name="quest2" value="5">
+		                    </div>
+		            	</div>
+		            </div>
+		            <div class="element">
+		            	<div class="question">
+		            		<p class="label_boa">
+		            			I know how to apply at least one metal additive manufacturing process
+		            		</p>
+		            	</div>
+		            	<div class="answer">
+		            		<div>
+		            			<div class="def">Strongly disagree</br></div>
+		                        <input id="quest3_answ1" type="radio" name="quest3" value="1">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Disagree</br></div>
+		                        <input id="quest3_answ2" type="radio" name="quest3" value="2">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Agree</br></div>
+		                        <input id="quest3_answ4" type="radio" name="quest3" value="4">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Strongly agree</br></div>
+		                        <input id="quest3_answ5" type="radio" name="quest3" value="5">
+		                    </div>
+		            	</div>
+		            </div>
+		            <div class="element">
+		            	<div class="question">
+		            		<p class="label_boa">
+		            			I know how to apply at least one polymer additive manufacturing process
+		            		</p>
+		            	</div>
+		            	<div class="answer">
+		            		<div>
+		            			<div class="def">Strongly disagree</br></div>
+		                        <input id="quest4_answ1" type="radio" name="quest4" value="1">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Disagree</br></div>
+		                        <input id="quest4_answ2" type="radio" name="quest4" value="2">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Agree</br></div>
+		                        <input id="quest4_answ4" type="radio" name="quest4" value="4">
+		                    </div>
+		                    <div>
+		                    	<div class="def">Strongly agree</br></div>
+		                        <input id="quest4_answ5" type="radio" name="quest4" value="5">
+		                    </div>
+		            	</div>
+		            </div>
+		        </div>
+		        <div class= "change_sheet">
+                    <div>
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <input id="submit" type="submit" value="Submit"/>
+                        <label id="label_submit" for="submit" class="strategy">Save</label>
+                    </div>
+                </div>
+		    </div>
+		</form>
+	</body>
+</html>
