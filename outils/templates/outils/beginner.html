@@ -11,11 +11,11 @@
 	<body>
 		<span class="fixed">
 			<header>
-                <img src="{% static 'img/arts.png' %}" alt="Arts logo" class="arts"/>       
-                <img src="{% static 'img/team.png' %}" alt="HESAM logo" class="hesam"/>
+                <img src="{% static 'img/arts.png' %}" alt="Arts logo" class="arts"/>
+                <a class="hesam" href="{% url 'home' %}"><img src="{% static 'img/hesam_trans.png' %}" alt="HESAM logo" class="hesam"/></a>
                 <h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
                 <img src="{% static 'img/i2m.png' %}" alt="I2M logo" class="i2m"/>
-                <img src="{% static 'img/lcpi.gif' %}" alt="LCPI logo" class="lcpi"/>
+                <img src="{% static 'img/lcpi.png' %}" alt="LCPI logo" class="lcpi"/>
             </header>
 			<nav class= "nav_beg">
 				<ul>
@@ -262,7 +262,7 @@
                     <div>
                         <p>
                             <span class="label_boa"><strong>These technologies have been preset according to your choices.</strong></span></br>
-                            <span class="def">To modify these presets, click on them:</span>
+                            <span class="def">If you want to modify these presets, click on them:</span>
                             <span class="crit_allo">Allowed</span>
                             <span class="def">, </span>
                             <span class="crit_forb">Forbidden</span>
@@ -330,7 +330,7 @@
                     <div>
                         <p>
                             <span class="label_boa"><strong>These materials have been preset according to your choices.</strong></span></br>
-                            <span class="def">To modify these presets, click on them:</span>
+                            <span class="def">If you want to modify these presets, click on them.</span>
                             <span class="crit_allo">Allowed</span>
                             <span class="def">, </span>
                             <span class="crit_forb">Forbidden</span>
@@ -375,7 +375,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Surface finish has been preset according to your choices.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it.</span>
+                            <span class="def">If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_surf">
@@ -412,7 +412,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Filling has been preset according to your choices.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it..</span>
+                            <span class="def"> If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_fill">
@@ -449,7 +449,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Color has been preset according to your choices.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it.</span>
+                            <span class="def"> If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_colo">
@@ -483,7 +483,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Thermal resistance has been preset according to your choices.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it.</span>
+                            <span class="def"> If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_ther">
@@ -512,7 +512,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Environnement resistance has been preset according to your choices.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it.</span>
+                            <span class="def"> If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_opti">
@@ -541,7 +541,7 @@
                     <div>
                         <p>
                             <span class= "label_boa"><strong>Speed printing has been preset according to your choice.</strong></span></br>
-                            <span class="def"> To modify this preset, click on it.</span>
+                            <span class="def"> If you want to modify this preset, click on it.</span>
                         </p>
                     </div>
                     <div class="value_spee">
@@ -573,7 +573,7 @@
                 </div>
                 <div class="stl">
                     <input id="id_file" type="file" name="file">
-                    <label id="label_file" for="id_file">Import a STL file</label> 
+                    <label id="label_file" for="id_file" onclick="load_stl()">Import a STL file</label> 
                 </div>
                 <div class= "change_sheet">
                     <div class="back" onclick="switch_beg('cri')">

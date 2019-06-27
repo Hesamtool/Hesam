@@ -28,7 +28,7 @@ header h1
 
 }
 
-.lcpi, .arts, .i2m, .hesam
+.lcpi , .arts, .i2m, .hesam
 {
 	height: auto;
 	width:  10%;
@@ -347,6 +347,11 @@ label:hover, .home_choice:hover
   background-color: rgba(170,30,120,1);
   transform: translateY(4px);
   box-shadow: 0 5px #666;
+}
+
+.home_choice
+{
+  width : 50%;
 }
 
 #criteria label:hover

@@ -11,12 +11,12 @@
 	<body>
 		<span class="fixed">
 			<header>
-				<img src="{% static 'img/arts.png' %}" alt="Arts logo" class="arts"/>		
-				<img src="{% static 'img/team.png' %}" alt="HESAM logo" class="hesam"/>
-				<h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
-				<img src="{% static 'img/i2m.png' %}" alt="I2M logo" class="i2m"/>
-				<img src="{% static 'img/lcpi.gif' %}" alt="LCPI logo" class="lcpi"/>
-			</header>
+                <img src="{% static 'img/arts.png' %}" alt="Arts logo" class="arts"/>
+                <a class="hesam" href="{% url 'home' %}"><img src="{% static 'img/hesam_trans.png' %}" alt="HESAM logo" class="hesam"/></a>
+                <h1>Human cEntered Sustainable Additive Manufacturing tool</h1>
+                <img src="{% static 'img/i2m.png' %}" alt="I2M logo" class="i2m"/>
+                <img src="{% static 'img/lcpi.png' %}" alt="LCPI logo" class="lcpi"/>
+            </header>
 		</span>
 		<div class="welcome">
 			<div class="welc_head">
@@ -66,7 +66,7 @@
 						</p>
 					</div>
 					<div>
-						<a href="{% url 'master' %}" class="home_choice" id ="master">Master</a>
+						<a class="home_choice" id ="master" href="{% url 'master' %}">Master</a>
 					</div>
 				</div>
 				<div class="prin">
