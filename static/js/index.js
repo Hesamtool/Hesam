@@ -7,7 +7,7 @@ if (nb_file>0)
 	{
 	document.getElementById('label_file').style.backgroundColor ='rgba(135,25,96,1)';
 	}
-else 
+else if (nb_file==0)
 	{
 	document.getElementById('label_file').style.backgroundColor ='rgba(178,178,178)';
 	}
@@ -25,6 +25,8 @@ var sta_uses = [[ac, ina, ina, ac],[ina, ina, ac, ac],[ina, ina, ac, ac],[ac, ac
 var lst_sel_uses = ['ergo_all', 'esth_all', 'asse_all', 'func_all']
 var lst_img_sect = ['img_medi_ina','img_medi_ac','img_aero_ina','img_aero_ac','img_auto_ina','img_auto_ac','img_luxu_ina','img_luxu_ac','img_oil_ina','img_oil_ac','img_othe_ina','img_othe_ac']
 var lst_img_use = ['img_medi_use','img_aero_use','img_auto_use','img_luxu_use','img_oil_use','img_othe_use'];
+var tool_top = document.getElementsByClassName("tooltiptext_top");
+var tool_bot = document.getElementsByClassName("tooltiptext_bottom");
 
 function change_sector(sector)
 {
@@ -53,11 +55,22 @@ for (var k=0; k<lst_sect.length; k++)
 			lst_sta_sect[2*k]='none';
 			lst_sta_sect[(2*k)+1]='inline-block';
 			img_use = document.getElementsByClassName(lst_img_use[k]);
+			for (var l=0; l<tool_bot.length; l++)
+				{
+				tool_bot[l].style.display = 'inline-block';
+				tool_top[l].style.display = 'inline-block';
+				}
 			}
 		else
 			{
 			in_sect=[0,0,0,0,0,0];
 			img_use = document.getElementsByClassName(lst_img_use[5]);
+			state = sta_uses[5]
+			for (var l=0; l<tool_bot.length; l++)
+				{
+				tool_bot[l].style.display = 'none';
+				tool_top[l].style.display = 'none';
+				}
 			}
 		}
 	}

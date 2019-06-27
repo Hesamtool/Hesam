@@ -745,6 +745,11 @@ td
   transition-delay: 0.5s;
 }
 
+.uses div .tooltiptext_top, .uses div .tooltiptext_bottom
+{
+  display: none;
+}
+
 .sectors div .tooltiptext_right
 {
   right: 0%;
