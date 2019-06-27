@@ -640,7 +640,7 @@ else if (onglet=='set')
 	{
 	document.getElementById("strategy_user").style.display = 'none';
 	document.getElementById("rules").style.display = 'none';
-	document.getElementById("set_machine").style.display = 'grid';
+	document.getElementById("set_machine").style.display = 'inline-grid';
 	ong_res.style.backgroundColor = done;
 	ong_rul.style.backgroundColor = done;
 	ong_set.style.backgroundColor = ac;
