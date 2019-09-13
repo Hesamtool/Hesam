@@ -1,4 +1,5 @@
 .fixed
+/*Fixes the windows position of all web pahes*/
 {
 	position: fixed;
 	top: 0;
@@ -7,6 +8,7 @@
 }
 
 header
+/*Determines the position of the presentation banner*/
 {
 	display: flex;
   height : 100px;
@@ -19,6 +21,7 @@ header
 }
 
 header h1
+/*Determines the font of the presentation banner*/
 {
 	color: black;
 	min-width: 500px;
@@ -29,6 +32,7 @@ header h1
 }
 
 .lcpi , .arts, .i2m, .hesam
+/*Determines the image size of the presentation banner*/
 {
 	height: auto;
 	width:  10%;
@@ -40,6 +44,7 @@ header h1
 
 
 .i2m, .hesam
+/*Idem*/
 {
   width : 7%;
   min-width: 100px;
@@ -48,6 +53,7 @@ header h1
 /*navigateur*/
 
 nav ul
+/*Determines the main layout of the navigator box*/
 {
   list-style-type: none;
   margin: 0;
@@ -57,12 +63,14 @@ nav ul
 }
 
 nav li 
+/*Determines the layout of each box in the navigator box*/
 {
   float: left;
   height: auto;
 }
 
-nav li a 
+nav li a
+/*Determines the layout and the font of each box in the navigator box*/ 
 {
   display: block;
   color: white;
@@ -78,26 +86,31 @@ nav li a
 }
 
 nav li a:hover 
+/*Colour change when the navigator box is hover*/
 {
   background-color: rgba(170,30,120,1);
 }
 
 .nav_beg #ong_sec
+/*Colour change when a navigator box is selected*/
 {
   background-color: rgba(170,30,120,1);
 }
 
 #criteria nav li a 
+/*Font size oh the criterium navigator*/
 {
   height: 15px;
   font-size : 0.8em;
 }
 #criteria nav ul
+/*Background-color*/
 {
   background-color: rgb(178,178,178);
 }
 
 #criteria nav ul #ong_tec
+/*Background-color of technologie layout*/
 {
   background-color: rgba(170,30,120,1);
 }
@@ -105,8 +118,9 @@ nav li a:hover
 /*Previous & Next*/
 
 .change_sheet
+/*Determines the size of change-sheet box at the bottom page */
 {
-  display :grid;
+  display: grid;
   grid-template-rows: 100%;
   grid-template-columns: 25% 25% 25% 25%;
   align-items: center;
@@ -114,6 +128,7 @@ nav li a:hover
 }
 
 .previous, .back, .next, .save, .strategy
+/*Detemines the size and font-size of the buttons*/
 {
   padding: 10px 15px;
   font-size: 15px;
@@ -133,6 +148,7 @@ nav li a:hover
 }
 
 .previous:hover, .back:hover, .next:hover, .save:hover, .save_all:hover, .strategy:hover
+/*Determines the color of buttons when they are hover*/
 {
   background-color: rgba(170,30,120,1);
   transform: translateY(3px);
@@ -142,6 +158,7 @@ nav li a:hover
 /*Home & Level form*/
 
 .welcome
+/*Determines the mayout of the home page*/
 {
   display: grid;
   grid-template-rows: 30% 60% 10%;
@@ -156,6 +173,7 @@ nav li a:hover
 }
 
 .welc_head
+/*Determines the layout of the home head page*/
 {
   background-color: rgba(246,135,18,0.8);
   border-radius: 10px;
@@ -167,6 +185,7 @@ nav li a:hover
 }
 
 .level_sheet
+/*Determines the layout of the level page*/
 {
   display: grid;
   grid-template-rows: 10% 70% 20%;
@@ -180,6 +199,7 @@ nav li a:hover
 }
 
 .level_form
+/*Determines the layout of the form level page*/
 {
   display: flex;
   flex-direction: row;
@@ -192,6 +212,7 @@ nav li a:hover
 }
 
 .element
+/*Determines the layout of each question for the level web page*/
 {
   display: grid;
   grid-template-columns: 100%;
@@ -205,6 +226,7 @@ nav li a:hover
 }
 
 .answer
+/*Determines the layout of each answer for each question for the level web page*/
 {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -216,6 +238,7 @@ nav li a:hover
 }
 
 .answer label
+/*Determines the font-size of each answer*/
 {
   font-size: 13px;
   text-align: center;
@@ -224,12 +247,14 @@ nav li a:hover
 }
 
 form .answer input[type="radio"]
+/*Determines the pointer fit for the input radio in the form*/
 {
   display: inline-flex;
   cursor: pointer;
 }
 
 .principles
+/*Determines the layout of main box in the home web page*/
 {
   display: flex;
   flex-wrap: nowrap;
@@ -242,6 +267,7 @@ form .answer input[type="radio"]
 }
 
 .prin
+/*Determines the layout of each level box in the home page.*/
 {
   display: grid;
   grid-template-columns: 100%;
@@ -255,6 +281,7 @@ form .answer input[type="radio"]
 }
 
 .welcome a, .select_str a
+/*Determines the font in the home page*/
 {
   text-decoration: none;
   color: white;
@@ -265,17 +292,19 @@ form .answer input[type="radio"]
 /*Beginner*/
 
 .nav_beg li
+/*Determines the size of each box of beginner navigator*/
 {
   width: 20%;
 }
 
 #uses, #criteria, #stl
+/*Cover the uses, criteria and stl box in the beginner path at the beginning*/
 {
   display: none;
 }
 
 /*Master*/
-
+/*Determines the layout of master path*/
 .form_mas
 {
   width: 100%;
@@ -304,6 +333,7 @@ form .answer input[type="radio"]
 /*Formulaire*/
 
 form
+/*Determines the postion fo formulaire for each path*/
 {
   display: flex;
   width: 100%;
@@ -313,16 +343,19 @@ form
 }
 
 form input[type="radio"], form input[type="file"], form input[type='submit'], form input[type="checkbox"]
+/*Cover the input box in the form for eah path*/
 {
     display: none;
 }
 
 #experience
+/*Cover the experience choise for the data bases*/
 {
   display : none;
 }
 
 label, .home_choice
+/*Determines the layout of experience input*/
 {
   display: inline-block;
   padding: 15px 25px;
@@ -343,6 +376,7 @@ label, .home_choice
 }
 
 label:hover, .home_choice:hover
+/*Determines the layout of experience input when they are hover*/
 {
   background-color: rgba(170,30,120,1);
   transform: translateY(4px);
@@ -350,21 +384,25 @@ label:hover, .home_choice:hover
 }
 
 .home_choice
+/*Determines the layout of level choice box*/
 {
   width : 50%;
 }
 
 #criteria label:hover
+/*Changes the colour of criteria when they are hover*/
 {
   background-color: green;
 }
 
 #level
+/*Determines the size of the buttom "Evaluate my level"*/
 {
 width: 350px;
 }
 
 #label_file
+/*Determines the size of the button "Import your stl file*/
 {
   height : 40px;
   width: 400px;
@@ -372,6 +410,7 @@ width: 350px;
 }
 
 .body, .body_cri
+/*Determines the layout of each main part of beginner and master web pages (Sectors,uses...)*/
 {
   display: grid;
   grid-template-rows: 15% 75% 10%;
@@ -384,11 +423,13 @@ width: 350px;
 }
 
 .body_cri
+/*Determines the size of each part in the criteria page for all criteria*/
 {
-    grid-template-rows: 10% 90%;
+  grid-template-rows: 10% 90%;
 }
 
 .def, .crit_allo, .crit_forb
+/*Determine the font of definition for each page*/
 {
   font-size: 0.8em;
   font-family: Verdana, Arial, sans-serif;
@@ -406,6 +447,7 @@ width: 350px;
 }
 
 .uses
+/*Determines the postion of use button in use page*/
 {
   display: inline-flex;
   justify-content: space-around;
@@ -414,6 +456,7 @@ width: 350px;
 }
 
 .sectors
+/*Determines the position of secton button in sector page*/
 {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
@@ -423,6 +466,7 @@ width: 350px;
 }
 
 .criteria
+/*Determines the position of criteria button for each criteria page*/
 {
   display: none;
   grid-template-columns: 100%;
@@ -432,11 +476,13 @@ width: 350px;
 }
 
 #cri_tech
+/*Determines the position of each technology in technology criteria*/
 {
   display: grid;
 }
 
 .value_ther, .value_opti, .value_spee
+/*Determines the position of each value for each criteria*/
 {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -447,6 +493,7 @@ width: 350px;
 }
 
 .value_colo
+/*Determines the position of each color in color criteria page*/
 {
   display: inline-flex;
   justify-content: space-around;
@@ -457,6 +504,7 @@ width: 350px;
 
 
 .value_mate
+/*Determines the position of each material in material page*/
 {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -467,6 +515,7 @@ width: 350px;
 }
 
 .value_surf
+/*Determines the position of each surface in surface page*/
 {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
@@ -477,6 +526,7 @@ width: 350px;
 }
 
 .value_dens
+/*Determines the position of each density in density page*/
 {
   display: grid;
   grid-template-columns: 100%;
@@ -487,6 +537,7 @@ width: 350px;
 }
 
 .value_tech
+/*Determines the position of each technology in technology criteria page*/
 {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -497,6 +548,7 @@ width: 350px;
 }
 
 .value_fill
+/*Determines the position of each filling in filling criteria page*/
 {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
@@ -507,6 +559,7 @@ width: 350px;
 }
 
 h3
+/*Determines the layout of h3 font*/
 {
   font-family: Verdana, Arial, sans-serif;
   color: grey;
@@ -515,6 +568,7 @@ h3
 }
 
 .criteria img, .img_use img, .img_sector img, .select_str img
+/*Determines the layout of each image in the criteria page*/
 {
   box-shadow: 0 9px #999;
   border-radius: 5px;
@@ -522,28 +576,33 @@ h3
 }
 
 .select_str img
+/*Determines the image heigt in the strategy page*/
 {
   height: 180px;
 }
 
 #cri_fill img
+/*Determines the image heigt in the filling page*/
 {
   height :180px;
 }
 
 .img_use img, .img_sector img, .value_surf img
+/*Determines the image heigt in the use, sector and surface page*/
 {
   height: 160px;
   width: 160px;
 }
 
 .img_tech
+/*Determines the image heigt in the technology page*/
 {
   width: 180px;
   height: 120px;
 }
 
 .img_tech:hover
+/*Determines the layout of each technology image when they are hovered by the pointer*/
 {
   width: 330px;
   height: 220px;
@@ -552,12 +611,14 @@ h3
 }
 
 .criteria img:hover, .img_use img:hover, .select_str img:hover, .img_sector img:hover
+/*Determines the layout of each use, criteria, strtegy and sector image when they are hovered by the pointer*/
 {
   transform: translateY(4px);
   box-shadow: 0 5px #666;
 }
 
 #label_submit
+/*Determines the size of submin button*/
 {
   width: 150px;
   height: 20px;
@@ -565,22 +626,25 @@ h3
 }
 
 .stl
+/*Determines the position of the stl download button*/
 {
   margin: auto;
 }
 
 .tech, .sectors div, .uses div
+/*Determines the position of each value in technology, sector and use page*/
 {
   position: relative;
   display: inline-block;
 }
-
+/*Cover the green image of uses when they are not selected by the user*/
 #img_ergo_ac, #img_esth_ac, #img_asse_ac, #img_func_ac
 {
   display: none;
 }
 
 #img_medi_ac, #img_oil_ac, #img_luxu_ac, #img_auto_ac, #img_aero_ac, #img_othe_ac
+/*Cover the green image of sectors when they are not selected by the user*/
 {
   display: none;
 }
@@ -588,16 +652,19 @@ h3
 /*Résultats*/
 
 .nav_res li
+/*Determines the size of each box in the result navigator*/
 {
   width: 25%;
 }
 
 .nav_res #ong_res
+/*Determines the background color of result navigator*/
 {
   background-color: rgba(170,30,120,1);
 }
 
 .set_machine, .rules, .strategy_user
+/*Determines the layout of main onglet in result page*/
 {
   position: absolute;
   top : 150px;
@@ -610,16 +677,19 @@ h3
 }
 
 .rules
+/*Cover the rules until the choix was done by the user about the strategy*/
 {
   display: none;
 }
 
 .strategy_user
+/*Determine the display of strategy selection*/
 {
   display: grid;
 }
 
 .rules, .strategy_user
+/*Determine the display of rule and strategy selection*/
 {
   grid-template-columns : 100%;
   grid-template-rows : 15% 70% 15%;
@@ -627,6 +697,7 @@ h3
 }
 
 .set_machine
+/*Determine the set machine layout in the result page*/
 {
   display: none;
   grid-template-columns: 100%;
@@ -634,6 +705,7 @@ h3
 }
 
 .set_machine .change_sheet
+/*Determine the set machine grid in the result page*/
 {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -641,11 +713,13 @@ h3
 }
 
 .set_machine p
+/*Determine the set machine layout in the result page*/
 {
   font-family: Verdana, Arial, sans-serif;
 }
 
 .area_set
+/*Detemines the layout of each are in the grid of result page*/
 {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -653,6 +727,7 @@ h3
   vertical-align: top;
 }
 
+/*Determines the layout of each table*/
 table
 {
   width: 80%;
@@ -676,6 +751,7 @@ td
 }
 
 .ori_stl
+/*Determines the size of the picture orientation*/
 {
   width: 60%;
   height : auto;
@@ -684,6 +760,7 @@ td
 
 
 .label_boa
+/*Determine the font for each label in result page*/
 {
   font-size: 1.4em;
   font-family: Verdana, Arial, sans-serif;
@@ -695,6 +772,7 @@ td
 }
 
 .orientation, .specification
+/*Determines the latout of the orientation and specification grid*/
 {
   display: grid;
   grid-template-columns: 100%;
@@ -708,12 +786,14 @@ td
 }
 
 .orientation img
+/*Determines the layout of best orientation of the stl file*/
 {
   width : 70%;
   height: auto;
 }
 
 .select_str
+/*Determines the layout of strategy choice*/
 {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -722,6 +802,7 @@ td
 }
 
 .material_choice, .cost_choice
+/*Determines the layout of material and cost strategy choice*/
 {
   width: 100%;
   border-color: transparent;
@@ -729,11 +810,13 @@ td
 }
 
 #img_mate_ac, #img_cost_ac
+/*Cover the image of material or cost strategie until the user choice his/her strategy*/
 {
   display: none;
 }
 
 /*Tooltiptext*/
+/*Determines the layout of picture which appears when you hover a use or sector proposition*/
 
 .sectors div .tooltiptext_right, .sectors div .tooltiptext_left, .uses div .tooltiptext_top, .uses div .tooltiptext_bottom
 {
@@ -782,5 +865,12 @@ td
   width: 160px;
   height: 160px;
   box-shadow: none;
+  border-radius: 5px;
+}
+
+.img_rules
+{
+  height: 400px;
+  width: auto;
   border-radius: 5px;
 }

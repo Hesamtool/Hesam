@@ -147,12 +147,26 @@ class Printer(models.Model):
     infill_patt_proto_func = models.ForeignKey('Infill_Pattern_Prototype_Functionnal', on_delete = models.CASCADE, blank = True, null = True)
     layer_height_min = models.FloatField(blank = True, null = True)
     layer_height_max = models.FloatField(blank = True, null = True)
+    rack_filling = models.FloatField(blank = True, null = True)
+    rack_height = models.FloatField(blank = True, null = True)
+    overhang_angle = models.ForeignKey('Overhang', on_delete = models.CASCADE, blank = True, null = True)
+    overhang_angle_label = models.CharField(max_length = 100, blank = True, null = True)
 
     class Meta:
         verbose_name = "Printer"
 
     def __str__(self):
         return str(self.title)
+
+class Overhang(models.Model):
+    angle = models.IntegerField()
+
+    class Meta:
+        verbose_name = "Overhang angle"
+
+    def __str__(self):
+        return str(self.angle)
+
 
 
 class Colour(models.Model):
@@ -218,10 +232,18 @@ class Result(models.Model):
     pattern_proto_cost_label = models.CharField(max_length = 100, blank = True, null = True)
     dens_proto_cost = models.CharField(max_length = 100, blank = True, null = True)
     dens_proto_mate = models.CharField(max_length = 100, blank = True, null = True)
-    image = models.ImageField(blank = True, null = True)
-    rotation_X = models.FloatField(blank = True, null = True)
-    rotation_Y = models.FloatField(blank = True, null = True)
-    rotation_Z = models.FloatField(blank = True, null = True)
+    overhang_cost = models.IntegerField(blank = True, null = True)
+    overhang_mate = models.IntegerField(blank = True, null = True)
+    image_0= models.ImageField(blank = True, null = True)
+    image_68= models.ImageField(blank = True, null = True)
+    rotation_0_X = models.FloatField(blank = True, null = True)
+    rotation_0_Y = models.FloatField(blank = True, null = True)
+    rotation_0_Z = models.FloatField(blank = True, null = True)
+    rotation_68_X = models.FloatField(blank = True, null = True)
+    rotation_68_Y = models.FloatField(blank = True, null = True)
+    rotation_68_Z = models.FloatField(blank = True, null = True)
+    strategy_cost = models.CharField(max_length = 100, blank = True, null = True)
+    strategy_mate = models.CharField(max_length = 100, blank = True, null = True)
 
     class Meta:
         verbose_name = "Result"

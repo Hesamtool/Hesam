@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Use, Sector, Prototype, Material_proto, Material_support, Printer, Technology, Result, Colour, Thermal_resistance, Optical_resistance, Printing_speed, Level, Infill_Pattern_Prototype_Functionnal, Infill_Pattern_Prototype_Visual
+from .models import Use, Sector, Prototype, Overhang, Material_proto, Material_support, Printer, Technology, Result, Colour, Thermal_resistance, Optical_resistance, Printing_speed, Level, Infill_Pattern_Prototype_Functionnal, Infill_Pattern_Prototype_Visual
 class PrototypeAdmin(admin.ModelAdmin):
 	list_display = ('use', 'sector', 'date', 'file', 'colour', 'get_material_yes', 'get_material_no', 'surface', 'experience', 'filling_proto', 'thermal_resistance','optical_resistance', 'printing_speed', 'get_technology_yes','get_technology_no')
 	list_filter = ('use','sector',)
@@ -18,8 +18,8 @@ class Material_supportAdmin(admin.ModelAdmin):
 	ordering = ('title',)
 
 class ResultAdmin(admin.ModelAdmin):
-	list_display = ('date','title', 'price_cost','price_mate','volume_prototype_mate_label', 'volume_prototype_cost_label','volume_boundingbox','volume_support_cost','volume_support_mate','image')
-	list_filter = ('date','title', 'price_cost','price_mate','volume_prototype_mate_label', 'volume_prototype_cost_label','volume_boundingbox','volume_support_cost','volume_support_mate','image',)
+	list_display = ('date','title', 'price_cost','price_mate','volume_prototype_mate_label', 'volume_prototype_cost_label','volume_boundingbox','volume_support_cost','volume_support_mate','image_0','image_68')
+	list_filter = ('date','title', 'price_cost','price_mate','volume_prototype_mate_label', 'volume_prototype_cost_label','volume_boundingbox','volume_support_cost','volume_support_mate','image_0','image_68',)
 	ordering = ('date',)
 
 class LevelAdmin(admin.ModelAdmin):
@@ -42,3 +42,4 @@ admin.site.register(Optical_resistance)
 admin.site.register(Printing_speed)
 admin.site.register(Infill_Pattern_Prototype_Visual)
 admin.site.register(Infill_Pattern_Prototype_Functionnal)
+admin.site.register(Overhang)

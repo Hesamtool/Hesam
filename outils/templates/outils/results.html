@@ -71,7 +71,7 @@
 					<p><strong>Please be careful to observe the following design rules:</strong></p>
 				</div>
 				<div class="design_rules">
-					<p>TEAM rules</p>
+					<img src= "{% static 'img/design_rules.png' %}" alt="Source: The 3D printing Handbook" class="img_rules"/>
 				</div>
 				<div class= "change_sheet">
 					<div class="back" onclick="switch_res('res')">
@@ -155,22 +155,46 @@
 										<td>{{result.pattern_support_mate}}</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_X %}
+									{% if result.rotation_0_X and result.overhang_mate == 0 %}
 									<tr>
 										<td>Rotation X</td>
-										<td>{{result.rotation_X}} °</td>
+										<td>{{result.rotation_0_X}} °</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_Y %}
+									{% if result.rotation_0_Y and result.overhang_mate == 0 %}
 									<tr>
 										<td>Rotation Y</td>
-										<td>{{result.rotation_Y}} °</td>
+										<td>{{result.rotation_0_Y}} °</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_Z %}
+									{% if result.rotation_0_Z and result.overhang_mate == 0 %}
 									<tr>
 										<td>Rotation Z</td>
-										<td>{{result.rotation_Z}} °</td>
+										<td>{{result.rotation_0_Z}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_X and result.overhang_mate == 45 %}
+									<tr>
+										<td>Rotation X</td>
+										<td>{{result.rotation_45_X}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_Y and result.overhang_mate == 45 %}
+									<tr>
+										<td>Rotation Y</td>
+										<td>{{result.rotation_45_Y}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_Z and result.overhang_mate == 45 %}
+									<tr>
+										<td>Rotation Z</td>
+										<td>{{result.rotation_45_Z}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.strategy_mate %}
+									<tr>
+										<td>Strategy</td>
+										<td>{{result.strategy_mate}}</td>
 									</tr>
 									{% endif %}
 								</tbody>
@@ -209,22 +233,46 @@
 										<td>{{result.pattern_support_cost}}</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_X %}
+									{% if result.rotation_0_X and result.overhang_cost == 0 %}
 									<tr>
 										<td>Rotation X</td>
-										<td>{{result.rotation_X}} °</td>
+										<td>{{result.rotation_0_X}} °</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_Y %}
+									{% if result.rotation_0_Y and result.overhang_cost == 0 %}
 									<tr>
 										<td>Rotation Y</td>
-										<td>{{result.rotation_Y}} °</td>
+										<td>{{result.rotation_0_Y}} °</td>
 									</tr>
 									{% endif %}
-									{% if result.rotation_Z %}
+									{% if result.rotation_0_Z and result.overhang_cost == 0 %}
 									<tr>
 										<td>Rotation Z</td>
-										<td>{{result.rotation_Z}} °</td>
+										<td>{{result.rotation_0_Z}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_X and result.overhang_cost == 45 %}
+									<tr>
+										<td>Rotation X</td>
+										<td>{{result.rotation_45_X}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_Y and result.overhang_cost == 45 %}
+									<tr>
+										<td>Rotation Y</td>
+										<td>{{result.rotation_45_Y}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.rotation_45_Z and result.overhang_cost == 45 %}
+									<tr>
+										<td>Rotation Z</td>
+										<td>{{result.rotation_45_Z}} °</td>
+									</tr>
+									{% endif %}
+									{% if result.strategy_cost %}
+									<tr>
+										<td>Strategy</td>
+										<td>{{result.strategy_cost}}</td>
 									</tr>
 									{% endif %}
 								</tbody>
@@ -350,7 +398,22 @@
 						<div class="label_boa">
 							<p><strong>Orientation of your prototype</strong></p>
 						</div>
-						<img src= "{{ result.image.url }}" alt="orientation of STL file" class="ori_stl"/>
+						<div class="cost_choice">
+							{% if result.overhang_cost == 0 %}
+							<img src= "{{ result.image_0.url }}" alt="orientation of STL file" class="ori_stl"/>
+							{%endif%}
+							{% if result.overhang_cost == 68 %}
+							<img src= "{{ result.image_68.url }}" alt="orientation of STL file" class="ori_stl"/>
+							{%endif%}
+						</div>
+						<div class="material_choice">
+							{% if result.overhang_mate == 0 %}
+							<img src= "{{ result.image_0.url }}" alt="orientation of STL file" class="ori_stl"/>
+							{%endif%}
+							{% if result.overhang_mate == 68 %}
+							<img src= "{{ result.image_68.url }}" alt="orientation of STL file" class="ori_stl"/>
+							{%endif%}
+						</div>
 					</div>
 				</div>
 				<div class= "change_sheet">

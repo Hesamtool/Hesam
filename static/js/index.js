@@ -734,7 +734,7 @@ var use = 'othe';
 
 function opti_criteria(cate, valeur)
 {
-	if ((cate=='sect') && ((valeur=='medi')||(valeur=="aero")||(valeur=="auto")||(valeur=="luxe")||(valeur=="oil")))
+	if ((cate=='sect') && ((valeur=='medi')||(valeur=="aero")||(valeur=="auto")||(valeur=="luxe")||(valeur=="oil")||(valeur=='othe')))
 	{
 		use=valeur;
 	}
@@ -768,16 +768,12 @@ function opti_criteria(cate, valeur)
 			change_technology('tec1');
 			change_technology('tec2');
 			change_technology('tec3');
-			change_technology('tec4');
-			change_technology('tec4');
+			change_technology('tec4');change_technology('tec4');
 			change_technology('tec5');
-			change_technology('tec6');
-			change_technology('tec6');
-			change_technology('tec7');
-			change_technology('tec7');
+			change_technology('tec6');change_technology('tec6');
+			change_technology('tec7');change_technology('tec7');
 			change_material('mate_1');
-			change_material('mate_2');
-			change_material('mate_2');
+			change_material('mate_2');change_material('mate_2');
 			change_material('mate_3');
 			change_material('mate_4');
 			change_surface('fair');
@@ -790,13 +786,13 @@ function opti_criteria(cate, valeur)
 		else if ((use=='medi') && (valeur=='func'))
 		{			
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
 			change_technology('tec6');
 			change_technology('tec7');change_technology('tec7');
-			change_material('mate_1');
+			change_material('mate_1');change_material('mate_1');
 			change_material('mate_2');
 			change_material('mate_3');change_material('mate_3');
 			change_material('mate_4');change_material('mate_4');
@@ -804,13 +800,13 @@ function opti_criteria(cate, valeur)
 			change_colour_filling('ful');
 			change_colour_colo('mono');
 			change_colour_ther('no');
-			change_colour_opti('yes');
+			change_colour_opti('no');
 			change_colour_spee('yes');
 		}
 		else if ((use=='aero') && (valeur=='asse'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
@@ -819,7 +815,7 @@ function opti_criteria(cate, valeur)
 			change_material('mate_1');
 			change_material('mate_2');
 			change_material('mate_3');change_material('mate_3');
-			change_material('mate_4');change_material('mate_4');
+			change_material('mate_4');
 			change_surface('fair');
 			change_colour_filling('emp');
 			change_colour_colo('mono');
@@ -830,13 +826,13 @@ function opti_criteria(cate, valeur)
 		else if ((use=='aero') && (valeur=='func'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
 			change_technology('tec6');
 			change_technology('tec7');change_technology('tec7');
-			change_material('mate_1');
+			change_material('mate_1');change_material('mate_1');
 			change_material('mate_2');
 			change_material('mate_3');change_material('mate_3');
 			change_material('mate_4');change_material('mate_4');
@@ -850,16 +846,15 @@ function opti_criteria(cate, valeur)
 		else if ((use=='auto') && (valeur=='asse'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
 			change_technology('tec6');
 			change_technology('tec7');change_technology('tec7');
-			change_material('mate_1');
+			change_material('mate_1');change_material('mate_1');
 			change_material('mate_2');
-			change_material('mate_3');
-			change_material('mate_3');
+			change_material('mate_3');change_material('mate_3');
 			change_material('mate_4');
 			change_surface('fair');
 			change_colour_filling('emp');
@@ -871,7 +866,7 @@ function opti_criteria(cate, valeur)
 		else if ((use=='auto') && (valeur=='func'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
@@ -888,7 +883,7 @@ function opti_criteria(cate, valeur)
 			change_colour_opti('yes');
 			change_colour_spee('yes');
 		}
-		else if ((use=='luxu') && (valeur=='ergo'))
+		else if (((use=='luxu')||(use='othe')) && (valeur=='ergo'))
 		{
 			change_technology('tec1');
 			change_technology('tec2');
@@ -908,7 +903,7 @@ function opti_criteria(cate, valeur)
 			change_colour_opti('no');
 			change_colour_spee('yes');
 		}
-		else if ((use=='luxu') && (valeur=='esth'))
+		else if (((use=='luxu')||(use='othe')) && (valeur=='esth'))
 		{
 			change_technology('tec1');
 			change_technology('tec2');
@@ -928,10 +923,10 @@ function opti_criteria(cate, valeur)
 			change_colour_opti('no');
 			change_colour_spee('yes');
 		}
-		else if ((use=='oil') && (valeur=='asse'))
+		else if (((use=='oil')||(use='othe')) && (valeur=='asse'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
@@ -940,7 +935,7 @@ function opti_criteria(cate, valeur)
 			change_material('mate_1');
 			change_material('mate_2');
 			change_material('mate_3');change_material('mate_3');
-			change_material('mate_4');change_material('mate_4');
+			change_material('mate_4');
 			change_surface('fair');
 			change_colour_filling('emp');
 			change_colour_colo('mono');
@@ -948,24 +943,24 @@ function opti_criteria(cate, valeur)
 			change_colour_opti('no');
 			change_colour_spee('yes');
 		}
-		else if ((use=='oil') && (valeur=='func'))
+		else if (((use=='oil')||(use='othe')) && (valeur=='func'))
 		{
 			change_technology('tec1');change_technology('tec1');
-			change_technology('tec2');change_technology('tec2');
+			change_technology('tec2');
 			change_technology('tec3');
 			change_technology('tec4');
 			change_technology('tec5');
 			change_technology('tec6');
 			change_technology('tec7');change_technology('tec7');
-			change_material('mate_1');
+			change_material('mate_1');change_material('mate_1');
 			change_material('mate_2');
 			change_material('mate_3');change_material('mate_3');
 			change_material('mate_4');change_material('mate_4');
 			change_surface('fair');
 			change_colour_filling('ful');
 			change_colour_colo('mono');
-			change_colour_ther('yes');
-			change_colour_opti('yes');
+			change_colour_ther('no');
+			change_colour_opti('no');
 			change_colour_spee('yes');
 		}
 	}

@@ -41,7 +41,7 @@
                         <li onclick="switch_cri('fil')" id="ong_fil"><a>Filling</a></li>
                         <li onclick="switch_cri('col')" id="ong_col"><a>Colour</a></li>
                         <li onclick="switch_cri('the')" id="ong_the"><a>Thermal resistance</a></li>
-                        <li onclick="switch_cri('opt')" id="ong_opt"><a>Optical resistance</a></li>
+                        <li onclick="switch_cri('opt')" id="ong_opt"><a>Environment resistance</a></li>
                         <li onclick="switch_cri('spe')" id="ong_spe"><a>Printing speed</a></li>
                     </ul>
                 </nav>
@@ -125,12 +125,12 @@
                         <div>
                             <input id="mate_1" type="checkbox" name="material_yes" value="6">
                             <input id =mate_1_no type="checkbox" name="material_no" value="6">
-                            <label id="label_mate_1" onclick="change_material('mate_1')">ABS plus</label>
+                            <label id="label_mate_1" onclick="change_material('mate_1')">Plastic</label>
                         </div>
                         <div>
                             <input id="mate_2" type="checkbox" name="material_yes" value="7">
                             <input id =mate_2_no type="checkbox" name="material_no" value="7">
-                            <label id="label_mate_2" onclick="change_material('mate_2')">Polyflex</label>
+                            <label id="label_mate_2" onclick="change_material('mate_2')">TechPlast</label>
                         </div>
                         <div>
                             <input id="mate_3" type="checkbox" name="material_yes" value="8">
@@ -296,7 +296,7 @@
                 <div class="criteria" id="cri_opti">
                     <div>
                         <p>
-                            <span class= "label_boa"><strong>Do you want your prototype to have optical resistance?</strong></span></br>
+                            <span class= "label_boa"><strong>Do you want your prototype to have environment resistance?</strong></span></br>
                             <span class="def"> Click on your preference choice to select it.</span>
                         </p>
                     </div>
@@ -332,10 +332,10 @@
                     <div class="value_spee">
                         <div>
                             <input id="yes_spee" type="radio" name="printing_speed" value="Normal">
-                            <label id="label_yes_spee" for="yes_spee" onclick="change_colour_spee('yes')">Normal</label>
+                            <label id="label_yes_spee" for="yes_spee" onclick="change_colour_spee('yes')">Yes</label>
                         </div>
                         <div>
-                            <label id="label_no_spee" onclick="change_colour_spee('no')">Fast</label>
+                            <label id="label_no_spee" onclick="change_colour_spee('no')">No</label>
                         </div>
                     </div>
                     <div class= "change_sheet">
